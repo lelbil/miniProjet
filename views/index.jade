@@ -1,0 +1,12 @@
+extends layout
+
+block content
+	h1= title
+	p Welcome to #{title}
+	h1 Try Sockets
+	h1#points
+	h2#diff difficulty should be here
+	h2#french
+	input#input(type="text", name="try", placeholder="ta traduction ici")
+	button.btn.btn-primary#btn click
+	script(type="text/javascript", src="/javascripts/functions.js")
