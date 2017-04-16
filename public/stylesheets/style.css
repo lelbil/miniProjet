@@ -6,3 +6,30 @@ body {
 a {
   color: #00B7FF;
 }
+
+#input{
+	display: none;
+}
+
+#btn{
+	margin: 100px 250px;
+}
+
+#info{
+	display: none;
+	margin-top: 20px;
+	padding: 0px;
+}
+
+#diffSpan{
+	float: right;
+}
+#french{
+	font-size: 60px;
+}
+#interaction{
+	margin-top: 60px;
+}
+#hints{
+	display: none;
+}

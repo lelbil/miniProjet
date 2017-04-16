@@ -6,10 +6,10 @@
 
 	var gameOver = function(state, element){
 		if (state == 'w'){
-			element.innerHTML = "You winex"; french.style.display = btn.style.display = "none";
+			element.innerHTML = "Gagnant"; element.style.fontSize = "80px"; element.style.color ="green";
 		}
 		if( state == 'l'){
-			element.innerHTML = "Loserex"; french.style.display = btn.style.display = "none";
+			element.innerHTML = "Perdant"; element.style.fontSize = "80px"; element.style.color ="red";
 		}
 		else {
 			//console.log('problème dans la fonction gameOver: argument incorrect')
@@ -26,12 +26,12 @@
 			points--; if (diff != 0) diff--;
 		}
 		if(points == 0) {
-			gameOver('l', h1p); return; 
+			gameOver('l', gameSection); return; 
 		}
 		if(points == 20) {
-			gameOver('w', h1p); return;
+			gameOver('w', gameSection); return;
 		}
-		h1p.innerHTML = "Points: " + points;
+		h1p.innerHTML = " " + points;
 	}
 
 	btn.onclick= function() {
@@ -39,11 +39,21 @@
 		socket.emit('verbRequested', {difficulty: diff})
 		socket.on('gotVerb', function (data) {
 			console.log(data);
-		    french.innerHTML = "Verbe en Français: " + data.verb;
+		    french.innerHTML = data.verb;
 		    var diff = document.getElementById("diff"); //why is this line mandatory? I don't understand! shouldn't javaScript find the element by its id without this like it is with french for instance?
-		    diff.innerHTML = "Niveau de difficulté du verbe: " + data.difficulty;
+		    diff.innerHTML = " " + data.difficulty;
 		    current = data.translation;
+		    		firstLetter.innerHTML = data.verb[0];
+		howMany.innerHTML = data.verb.length;
 		});
+
+		input.style.display = "inline";
+		info.style.display = "block"
+		btn.innerHTML = "valider l'entrée";
+		btn.classList.remove('btn-lg'); //what if it has already been removed
+		btn.style.margin = "auto";
+		hints.style.display = "block";
+
 	};
 
 })();

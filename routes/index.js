@@ -22,7 +22,7 @@ router.get('/', function(req, res) {
             //console.log(trans); //other coe goes here
             console.log(verbe + " " + trans);
         });
-        res.render('index', { title: 'Page d\'acceuil du jeu',verb: verbe, translation: trans });
+        res.render('index', { title: 'la page d\'acceuil du jeu'});
     });
 });
 

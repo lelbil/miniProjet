@@ -1,12 +1,30 @@
 extends layout
 
 block content
-	h1= title
-	p Welcome to #{title}
-	h1 Try Sockets
-	h1#points
-	h2#diff difficulty should be here
-	h2#french
-	input#input(type="text", name="try", placeholder="ta traduction ici")
-	button.btn.btn-primary#btn click
+	.container-fluid
+		.row.page-header
+			h1 
+				b Bienvenue à #{title}
+		.row
+			.col-md-5
+				.well 
+					p Un utilisateur arrive sur l'application et démarre un jeu. L'application lui affiche un mot en Français et l'utilisateur doit trouver sa traduction en Anglais. Pour le guider, l'application affiche également (de la manière que tu juges la plus appropriée) la première lettre et le nombre de lettres du mot à trouver. 
+					p L'utilisateur démarre avec un capital de 10 points. S’il se trompe de mot, il perd un point. S’il trouve le bon mot, il gagne un point.
+					p Si l'utilisateur arrive à 0 point, il a perdu. S’il arrive à 20 points, il a gagné.
+			.col-md-7.text-center#gameSection
+				h2
+					b#french
+				#interaction
+					input#input(type="text", name="try", placeholder="ta traduction ici")
+					button.btn.btn-primary.btn-lg#btn Commencer à jouer
+				.well#info
+					p#hints
+						span La première lettre est la lettre 
+							b#firstLetter
+						span  et le nombre total des lettres est de 
+							b#howMany
+					span Total Points:
+						b#points
+					span#diffSpan Niveau de difficulté du verbe: 
+						b#diff
 	script(type="text/javascript", src="/javascripts/functions.js")
