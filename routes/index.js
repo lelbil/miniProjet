@@ -9,37 +9,8 @@ var translate = require('yandex-translate-api')("trnsl.1.1.20170414T013931Z.b5d4
 
 /* GET home page. */
 router.get('/', function(req, res) {
-	console.log('button clicked, get performed');
-	var random = Math.floor(Math.random() * 500);
-    Verb.findOne().skip(random).exec(function(err, result){
-        if(err) throw err;
-        //if no error, procceed to get translation
-        var verbe = result.verb;
-        var trans; //I love naming variables
-        translate.translate(verbe,{ from: 'fr', to: 'en'}, function(err, translated) {
-            //console.log(translated.text[0])
-            trans = translated.text[0]; 
-            //console.log(trans); //other coe goes here
-            console.log(verbe + " " + trans);
-        });
-        res.render('index', { title: 'la page d\'acceuil du jeu'});
-    });
+    res.render('index', { title: 'la page d\'acceuil du jeu'});
 });
 
-router.post('/api', function(req, res){
-	console.log("request posted");
-	var random = Math.floor(Math.random() * 500);
-    Verb.findOne().skip(random).exec(function(err, res){
-        if(err) throw err;
-        //if no error, procceed to get translation
-        var trans; //I love naming variables
-        translate.translate(res.verb,{ from: 'fr', to: 'en'}, function(err, translated) {
-            //console.log(translated.text[0])
-            trans = translated.text[0]; 
-            //console.log(trans); //other coe goes here
-            console.log(res.verb + " " + trans);
-        });
-    });
-})
 
 module.exports = router;
