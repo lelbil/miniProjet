@@ -11,14 +11,15 @@ Avant de lancer le programme assurez vous d'avoir NodeJs et mongoDB ainsi que np
 7. Entrez l'adresse localhost:3000 dans la barre d'adresse de votre navigateur
 8. Vous pouvez commencez à jouer
 
-#### Temps total passé au développement: 11 heures
+#### Temps total passé au développement: 
+11 heures
 
 #### Fonctionnement technique de l'application:
 
 L'application utilise la modèle par défault d'un projet express pour lancer le serveur.
 Une fois le serveur lancé, l'application renvoie une page html qui consiste en deux parties: 
-	1. Du texte qui était copié et collé à partir de l'email
-	2. D'un bouton qui sert à démarrez le jeu
+1. Du texte qui était copié et collé à partir de l'email
+2. D'un bouton qui sert à démarrez le jeu
 dès qu'on appuyie sur le bouton, la deuxième partie dévoile un verbe en Français (écris en grans et gras), un champs de saisie, un bouton pour valider l'entrée, un texte qui donne des indices sur la réponse, le score actuel, et le niveau du difficulté du verbe présent
 
 Dès qu'un utilisateur est connecté, un websocket connecte le serveur et le client, il attend ainsi l'évenement verbRequested. Une fois reçu, le serveur appelle la fonction fetch; cette fonction prends en argument le socket et la difficulté souhaité (récupperer avec l'évenement émis).
@@ -30,14 +31,14 @@ quand le joueur valide l'entrée de sa traduction, une fonction anonyme s'éxéc
 
 
 Comment je peux améliorer mon application:
-	Ce jeu étant un mini-projet, il contient beaucoup de défauts; on peux par exemple parler de:
-		1. Côté jeu:
-			* vérifier l'exactitude des verbes, utiliser un service plus sûr que Yandex
-			* utiliser des verbes plus variés (de a à z)
-			* pouvoir valider en tappant 'entrer'
-			* Rajouter d'autres langues cibles
-			* Améliorer l'interface graphique trop basique
-		2. Côté technique:
-			* hébérger mes CDN pour que ça prennent moins de temps à charger 
-			* Peupler la base de données une seule fois (peut être en vérifiant que la base ou la collection n'existe pas avant d'éxéctuer le code pour la peupler, ou bien servir les fichiers de la DB avec le projet?)
-			* Stocker la traduction dans le document de chaque verbe
+Ce jeu étant un mini-projet, il contient beaucoup de défauts; on peux par exemple parler de:
+1. Côté jeu:
+* vérifier l'exactitude des verbes, utiliser un service plus sûr que Yandex
+* utiliser des verbes plus variés (de a à z)
+* pouvoir valider en tappant 'entrer'
+* Rajouter d'autres langues cibles
+* Améliorer l'interface graphique trop basique
+2. Côté technique:
+* hébérger mes CDN pour que ça prennent moins de temps à charger 
+* Peupler la base de données une seule fois (peut être en vérifiant que la base ou la collection n'existe pas avant d'éxéctuer le code pour la peupler, ou bien servir les fichiers de la DB avec le projet?)
+* Stocker la traduction dans le document de chaque verbe

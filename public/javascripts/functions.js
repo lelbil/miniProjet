@@ -43,8 +43,8 @@
 		    var diff = document.getElementById("diff"); //why is this line mandatory? I don't understand! shouldn't javaScript find the element by its id without this like it is with french for instance?
 		    diff.innerHTML = " " + data.difficulty;
 		    current = data.translation;
-		    		firstLetter.innerHTML = data.verb[0];
-		howMany.innerHTML = data.verb.length;
+		    firstLetter.innerHTML = data.translation[0];
+			howMany.innerHTML = data.translation.length;
 		});
 
 		input.style.display = "inline";
