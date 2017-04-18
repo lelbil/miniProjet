@@ -4,6 +4,10 @@
 	var current;
 	var socket = io.connect('http://localhost:3001');
 
+	input.addEventListener("keypress", function(e){
+		if (e.keyCode === 13) clickedButton();
+	})
+
 	var gameOver = function(state, element){
 		if (state == 'w'){
 			element.innerHTML = "Gagnant"; element.style.fontSize = "80px"; element.style.color ="green";
@@ -34,7 +38,9 @@
 		h1p.innerHTML = " " + points;
 	}
 
-	btn.onclick= function() {
+
+
+	var clickedButton = function() {
 		upPoints();
 		socket.emit('verbRequested', {difficulty: diff})
 		socket.on('gotVerb', function (data) {
@@ -53,7 +59,11 @@
 		btn.classList.remove('btn-lg'); //what if it has already been removed
 		btn.style.margin = "auto";
 		hints.style.display = "block";
-
+		input.value = '';
+		input.focus();
 	};
 
+	btn.onclick= function(){
+		clickedButton();
+	}
 })();

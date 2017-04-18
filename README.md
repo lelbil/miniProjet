@@ -38,7 +38,9 @@ Ce jeu étant un mini-projet, il contient beaucoup de défauts; on peux par exem
 * pouvoir valider en tappant 'entrer'
 * Rajouter d'autres langues cibles
 * Améliorer l'interface graphique trop basique
+* Rendre plusieurs réponses justes possible (mais il faudra donc enlever les indices)
 2. Côté technique:
 * hébérger mes CDN pour que ça prennent moins de temps à charger 
 * Peupler la base de données une seule fois (peut être en vérifiant que la base ou la collection n'existe pas avant d'éxéctuer le code pour la peupler, ou bien servir les fichiers de la DB avec le projet?)
 * Stocker la traduction dans le document de chaque verbe
+* réparer la résonance des évenements socket (peut être constaté sue le log du client quand on est entrain de jouer) 
